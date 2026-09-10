@@ -4,6 +4,8 @@ A production-grade, fullstack sales intelligence web application designed for Ac
 
 ---
 
+**Live Demo**: [https://company-research-tool-67r5.onrender.com/](https://company-research-tool-67r5.onrender.com/)
+
 ## 📸 Core Features & Sales Rep UX
 
 - 🔍 **Prominent Search Bar**: Fast company lookup with keyboard shortcuts (`Cmd+K` / `Ctrl+K`), in-flight research cancellation, and rapid duplicate-search prevention.
@@ -22,17 +24,20 @@ A production-grade, fullstack sales intelligence web application designed for Ac
 ## 🛠️ Tech Stack & Provider Choices
 
 ### Backend
+
 - **Framework**: Python 3.14 + FastAPI + `uvicorn`
 - **Database**: SQLite (`aiosqlite` for asynchronous non-blocking I/O)
 - **Streaming Protocol**: Server-Sent Events (SSE) via `StreamingResponse` (`text/event-stream`)
 - **Testing**: `pytest` & `pytest-asyncio`
 
 ### Frontend
+
 - **Framework**: React 18 + TypeScript + Vite
 - **Styling**: Tailwind CSS + Lucide Icons + Inter typography
 - **State & Utilities**: `date-fns` for relative timestamps, custom `fetch` reader with `AbortController` for stream cancellation.
 
 ### AI & Search Provider Rationale
+
 - **LLM Choice (OpenAI / Gemini)**:
   - Supports OpenAI (`gpt-4o-mini`) and Google Gemini (`gemini-1.5-flash`). These models provide structured JSON output, fast generation speeds, and high reasoning fidelity for company briefing extraction.
 - **Search API Choice (Tavily / Serper)**:
@@ -45,10 +50,12 @@ A production-grade, fullstack sales intelligence web application designed for Ac
 ## ⚡ Quick Start (How to Install & Run)
 
 ### Prerequisites
+
 - Python 3.10+
 - Node.js 18+ & npm
 
 ### 1. Backend Setup
+
 ```bash
 # Navigate to backend directory
 cd backend
@@ -59,9 +66,11 @@ pip install -r requirements.txt
 # Start FastAPI server
 uvicorn main:app --reload --port 8000
 ```
-*Backend API will be live at `http://localhost:8000` (Health check at `http://localhost:8000/api/health`).*
+
+_Backend API will be live at `http://localhost:8000` (Health check at `http://localhost:8000/api/health`)._
 
 ### 2. Frontend Setup
+
 ```bash
 # Open a new terminal and navigate to frontend directory
 cd frontend
@@ -72,7 +81,8 @@ npm install
 # Start Vite dev server
 npm run dev
 ```
-*Frontend UI will be live at `http://localhost:5173`.*
+
+_Frontend UI will be live at `http://localhost:5173`._
 
 ---
 
@@ -102,12 +112,14 @@ DATABASE_PATH=research_tool.db
 ## 🧪 Running Tests
 
 Run the backend test suite:
+
 ```bash
 cd backend
 python -m pytest tests/test_api.py -v
 ```
 
 Run the frontend TypeScript compilation check:
+
 ```bash
 cd frontend
 npm run build
@@ -155,4 +167,3 @@ npm run build
    - **Start Command**: `cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT`
 4. Add Environment Variables (e.g. `GEMINI_API_KEY`, `OPENAI_API_KEY`, `TAVILY_API_KEY`).
 5. Click **Create Web Service**. Render will deploy your application.
-
