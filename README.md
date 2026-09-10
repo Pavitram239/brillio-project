@@ -92,13 +92,9 @@ Create a `.env` file inside the `backend/` directory (or set environment variabl
 
 ```env
 # Choose your preferred LLM provider (Optional - fallback generator used if omitted)
-OPENAI_API_KEY=your_openai_api_key_here
-# OR
 GEMINI_API_KEY=your_gemini_api_key_here
 
 # Choose your preferred Search API (Optional)
-TAVILY_API_KEY=your_tavily_api_key_here
-# OR
 SERPER_API_KEY=your_serper_api_key_here
 
 # Database path (Optional, defaults to backend/research_tool.db)
