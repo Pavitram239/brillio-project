@@ -8,13 +8,13 @@ A production-grade, fullstack sales intelligence web application designed for Ac
 
 ## 📋 Required Submission Requirements Summary
 
-| Requirement | Section Link | Status |
-| :--- | :--- | :---: |
-| **How to install and run** | [Quick Start Instructions](#-how-to-install-and-run-quick-start) | ✅ Complete |
-| **LLM & Search API choice & rationale** | [LLM & Search API Choices](#-which-llm-and-search-api-were-chosen-and-why) | ✅ Complete |
-| **How to configure API keys** | [API Key Configuration Guide](#-how-to-configure-api-keys) | ✅ Complete |
-| **Trade-offs made** | [Trade-offs Made](#-trade-offs-you-made) | ✅ Complete |
-| **What you'd do differently with more time** | [Future Improvements](#-what-youd-do-differently-with-more-time) | ✅ Complete |
+| Requirement                                  | Section Link                                                               |   Status    |
+| :------------------------------------------- | :------------------------------------------------------------------------- | :---------: |
+| **How to install and run**                   | [Quick Start Instructions](#-how-to-install-and-run-quick-start)           | ✅ Complete |
+| **LLM & Search API choice & rationale**      | [LLM & Search API Choices](#-which-llm-and-search-api-were-chosen-and-why) | ✅ Complete |
+| **How to configure API keys**                | [API Key Configuration Guide](#-how-to-configure-api-keys)                 | ✅ Complete |
+| **Trade-offs made**                          | [Trade-offs Made](#-trade-offs-you-made)                                   | ✅ Complete |
+| **What you'd do differently with more time** | [Future Improvements](#-what-youd-do-differently-with-more-time)           | ✅ Complete |
 
 ---
 
@@ -36,13 +36,16 @@ A production-grade, fullstack sales intelligence web application designed for Ac
 ## 🤖 Which LLM and Search API Were Chosen, and Why
 
 ### 1. LLM Choice: OpenAI (`gpt-4o-mini`) & Google Gemini (`gemini-1.5-flash`)
+
 - **Why**: Both models support strict JSON mode schema enforcement, offer ultra-low latency streaming, and deliver high-fidelity structured summaries from web search snippets.
 - **Cost & Speed**: `gpt-4o-mini` and `gemini-1.5-flash` provide an optimal balance between execution speed (< 2s generation) and minimal API token cost.
 
 ### 2. Search API Choice: Tavily Search & Serper API
+
 - **Why**: Tavily and Serper are built specifically for LLM agent workflows. Unlike raw HTML scrapers, they deliver clean, deduplicated organic search snippets, news articles, and executive press releases.
 
 ### 3. Out-of-the-Box Smart Fallback Engine
+
 - **Why**: If external API keys (`OPENAI_API_KEY`, `GEMINI_API_KEY`, `TAVILY_API_KEY`) are missing, the tool seamlessly uses an internal smart generator that simulates real-time web search and progressive SSE section streaming so the app is 100% functional immediately upon launch.
 
 ---
@@ -50,10 +53,12 @@ A production-grade, fullstack sales intelligence web application designed for Ac
 ## ⚡ How to Install and Run (Quick Start)
 
 ### Prerequisites
+
 - Python 3.10+
 - Node.js 18+ & npm
 
 ### 1. Run Backend Server
+
 ```bash
 # Navigate to backend directory
 cd backend
@@ -64,9 +69,11 @@ pip install -r requirements.txt
 # Start FastAPI backend server
 uvicorn main:app --reload --port 8000
 ```
-*Backend API will be live at `http://localhost:8000` (Health check at `http://localhost:8000/api/health`).*
+
+_Backend API will be live at `http://localhost:8000` (Health check at `http://localhost:8000/api/health`)._
 
 ### 2. Run Frontend Client
+
 ```bash
 # In a new terminal, navigate to frontend directory
 cd frontend
@@ -77,7 +84,8 @@ npm install
 # Start Vite development server
 npm run dev
 ```
-*Frontend UI will be live at `http://localhost:5173`.*
+
+_Frontend UI will be live at `http://localhost:5173`._
 
 ---
 
@@ -86,12 +94,12 @@ npm run dev
 Create a `.env` file inside the `backend/` directory (or export environment variables in your shell):
 
 ```env
-# LLM Provider Keys (Optional - smart fallback used if omitted)
+# Choose your preferred LLM provider (Optional - fallback generator used if omitted)
 OPENAI_API_KEY=your_openai_api_key_here
 # OR
 GEMINI_API_KEY=your_gemini_api_key_here
 
-# Search Engine Keys (Optional)
+# Choose your preferred Search API (Optional)
 TAVILY_API_KEY=your_tavily_api_key_here
 # OR
 SERPER_API_KEY=your_serper_api_key_here
@@ -107,12 +115,14 @@ DATABASE_PATH=research_tool.db
 ## 🧪 Running Tests
 
 ### Backend Test Suite (Pytest)
+
 ```bash
 cd backend
 python -m pytest tests/test_api.py -v
 ```
 
 ### Frontend Type Check & Build
+
 ```bash
 cd frontend
 npm run build
